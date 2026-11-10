@@ -1,1 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Noxera — Discover Your Next Obsession</title>
+
+    <meta name="description"
+          content="Noxera is a cinematic movie and series discovery platform.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="nav-left">
+
+        <a href="#" class="logo">
+            <span class="logo-mark">N</span>
+            <span>NOXERA</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#discover">Discover</a>
+            <a href="#movies">Movies</a>
+            <a href="#series">Series</a>
+            <a href="#moods">Mood</a>
+        </nav>
+
+    </div>
+
+    <div class="nav-actions">
+
+        <button class="icon-button" id="searchToggle" title="Search">
+            ⌕
+        </button>
+
+        <button class="icon-button" id="favoritesButton" title="Favorites">
+            ♡
+        </button>
+
+        <button class="profile-button">
+            T
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     SEARCH
+========================================================= -->
+
+<section class="search-panel" id="searchPanel">
+
+    <div class="search-wrapper">
+
+        <span class="search-symbol">⌕</span>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search movies, series, actors..."
+            autocomplete="off"
+        >
+
+        <button id="clearSearch">ESC</button>
+
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+
+</section>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-background"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span></span>
+            CINEMATIC DISCOVERY
+        </div>
+
+        <h1>
+            Find your next
+            <em>obsession.</em>
+        </h1>
+
+        <p>
+            Movies and series chosen for your mood,
+            your taste, and the moment you're in.
+        </p>
+
+        <div class="hero-actions">
+
+            <button class="primary-button" id="exploreButton">
+                Explore
+                <span>→</span>
+            </button>
+
+            <button class="secondary-button" id="surpriseButton">
+                ✦ Surprise Me
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-scroll">
+        <span></span>
+        SCROLL TO DISCOVER
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DISCOVERY
+========================================================= -->
+
+<section class="section" id="discover">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-kicker">DISCOVER</span>
+            <h2>What are you in the mood for?</h2>
+        </div>
+
+    </div>
+
+
+    <div class="mood-grid" id="moods">
+
+        <button class="mood-card mood-night" data-mood="night">
+            <span class="mood-icon">☾</span>
+            <span class="mood-name">Late Night</span>
+            <span class="mood-description">
+                Quiet, atmospheric stories
+            </span>
+        </button>
+
+        <button class="mood-card mood-romantic" data-mood="romantic">
+            <span class="mood-icon">♡</span>
+            <span class="mood-name">Romantic</span>
+            <span class="mood-description">
+                Love, chemistry & connection
+            </span>
+        </button>
+
+        <button class="mood-card mood-mind" data-mood="mind">
+            <span class="mood-icon">◈</span>
+            <span class="mood-name">Mind-Bending</span>
+            <span class="mood-description">
+                Stories that stay with you
+            </span>
+        </button>
+
+        <button class="mood-card mood-adrenaline" data-mood="adrenaline">
+            <span class="mood-icon">ϟ</span>
+            <span class="mood-name">Adrenaline</span>
+            <span class="mood-description">
+                Fast, intense & unpredictable
+            </span>
+        </button>
+
+        <button class="mood-card mood-emotional" data-mood="emotional">
+            <span class="mood-icon">☁</span>
+            <span class="mood-name">Emotional</span>
+            <span class="mood-description">
+                Stories that hit differently
+            </span>
+        </button>
+
+        <button class="mood-card mood-feelgood" data-mood="feelgood">
+            <span class="mood-icon">✦</span>
+            <span class="mood-name">Feel Good</span>
+            <span class="mood-description">
+                Warm, uplifting & fun
+            </span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TRENDING
+========================================================= -->
+
+<section class="section" id="movies">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-kicker">RIGHT NOW</span>
+            <h2>Trending</h2>
+        </div>
+
+        <button class="text-button" id="trendingMore">
+            See all →
+        </button>
+
+    </div>
+
+    <div class="movie-grid" id="trendingGrid"></div>
+
+</section>
+
+
+<!-- =========================================================
+     HIDDEN GEMS
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-kicker">LESSER KNOWN</span>
+            <h2>Hidden Gems</h2>
+        </div>
+
+        <button class="text-button">
+            Explore →
+        </button>
+
+    </div>
+
+    <div class="movie-grid" id="hiddenGrid"></div>
+
+</section>
+
+
+<!-- =========================================================
+     SERIES
+========================================================= -->
+
+<section class="section" id="series">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-kicker">BINGE-WORTHY</span>
+            <h2>Series you'll love</h2>
+        </div>
+
+        <button class="text-button">
+            See all →
+        </button>
+
+    </div>
+
+    <div class="movie-grid" id="seriesGrid"></div>
+
+</section>
+
+
+<!-- =========================================================
+     COLLECTIONS
+========================================================= -->
+
+<section class="section collections-section">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-kicker">CURATED</span>
+            <h2>Explore a feeling.</h2>
+        </div>
+
+    </div>
+
+
+    <div class="collection-grid">
+
+        <button class="collection-card collection-one">
+            <span>01</span>
+            <strong>2AM Movies</strong>
+            <small>For when sleep isn't happening.</small>
+        </button>
+
+        <button class="collection-card collection-two">
+            <span>02</span>
+            <strong>Make Me Think</strong>
+            <small>Films that refuse to leave your mind.</small>
+        </button>
+
+        <button class="collection-card collection-three">
+            <span>03</span>
+            <strong>Perfect Weekend</strong>
+            <small>Easy watches for a slow evening.</small>
+        </button>
+
+        <button class="collection-card collection-four">
+            <span>04</span>
+            <strong>Hidden Classics</strong>
+            <small>Great films you may have missed.</small>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta-section">
+
+    <div class="cta-content">
+
+        <span class="section-kicker">YOUR CINEMA</span>
+
+        <h2>
+            Your next favorite
+            <em>is waiting.</em>
+        </h2>
+
+        <p>
+            Build your personal collection of films
+            and series worth remembering.
+        </p>
+
+        <button class="primary-button" id="favoritesCta">
+            Open Favorites →
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     DETAILS MODAL
+========================================================= -->
+
+<div class="modal-overlay" id="detailsModal">
+
+    <div class="details-modal">
+
+        <button class="modal-close" id="closeModal">
+            ×
+        </button>
+
+        <div class="details-backdrop" id="detailsBackdrop"></div>
+
+        <div class="details-content">
+
+            <div class="details-poster">
+                <img id="detailsPoster" src="" alt="">
+            </div>
+
+            <div class="details-info">
+
+                <span class="details-type" id="detailsType">
+                    MOVIE
+                </span>
+
+                <h2 id="detailsTitle">
+                    Movie Title
+                </h2>
+
+                <div class="details-meta">
+
+                    <span id="detailsRating">★ 8.8</span>
+
+                    <span id="detailsYear">2024</span>
+
+                    <span id="detailsRuntime">2h 10m</span>
+
+                </div>
+
+                <div class="details-genres" id="detailsGenres"></div>
+
+                <p id="detailsDescription"></p>
+
+                <div class="details-actions">
+
+                    <button class="primary-button" id="trailerButton">
+                        ▶ Watch Trailer
+                    </button>
+
+                    <button class="secondary-button" id="watchlistButton">
+                        + Watchlist
+                    </button>
+
+                    <button class="secondary-button" id="favoriteButton">
+                        ♡ Favorite
+                    </button>
+
+                </div>
+
+                <div class="details-cast">
+
+                    <h3>Cast</h3>
+
+                    <p id="detailsCast">
+                        Loading cast...
+                    </p>
+
+                </div>
+
+                <div class="details-watch">
+
+                    <h3>Where to Watch</h3>
+
+                    <div class="platform-list">
+
+                        <span>Netflix</span>
+                        <span>Prime Video</span>
+                        <span>JioHotstar</span>
+                        <span>ZEE5</span>
+                        <span>Apple TV</span>
+
+                    </div>
+
+                    <small>
+                        Availability may vary by region.
+                    </small>
+
+                </div>
+
+                <div class="why-noxera">
+
+                    <span>✦ WHY NOXERA</span>
+
+                    <p id="recommendationText">
+                        Because it matches your taste.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     FAVORITES MODAL
+========================================================= -->
+
+<div class="modal-overlay" id="favoritesModal">
+
+    <div class="favorites-modal">
+
+        <button class="modal-close" id="closeFavorites">
+            ×
+        </button>
+
+        <span class="section-kicker">YOUR COLLECTION</span>
+
+        <h2>Favorites</h2>
+
+        <div id="favoritesGrid" class="movie-grid"></div>
+
+        <div id="emptyFavorites" class="empty-state">
+
+            <div>♡</div>
+
+            <h3>Your collection is empty.</h3>
+
+            <p>
+                Start saving movies and series you don't want to forget.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        NOXERA
+    </div>
+
+    <p>
+        Discover stories worth remembering.
+    </p>
+
+    <div class="footer-bottom">
+
+        <span>© 2026 Noxera</span>
+
+        <span>
+            This product uses the TMDB API but is not endorsed or certified by TMDB.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="js/data.js"></script>
+<script src="js/recommendations.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
